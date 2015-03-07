@@ -6,9 +6,9 @@ It is vaporware.
 
 ### To be built
 
-x a maintainer can generate a blank note.
-- a maintainer can generate the site from all notes.
-- a maintainer can generate the site from recently changed notes.
+- ~~a maintainer can generate a blank note.~~
+- ~~a maintainer can generate the site from all notes.~~
+- a maintainer can generate the site from **recently changed notes**.
 - a user can see an index of notes
 - a user can view a note by its title
 - a user can view all notes with a tag

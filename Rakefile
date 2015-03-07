@@ -16,3 +16,13 @@ def generate_filepath
     "notes/1.md"
   end
 end
+
+desc "generate the site"
+task :generate_site do |task|
+  Dir.mkdir "./site" unless Dir.exists? "./site"
+
+  Dir["./notes/*"].each do |note_path|
+    html_path = "./site/#{/(\d+)/.match(note_path)[1]}.html"
+    sh "pandoc #{note_path} -f markdown -t html -s -o #{html_path}"
+  end
+end
