@@ -21,8 +21,18 @@ desc "generate the site"
 task :generate_site do |task|
   Dir.mkdir "./site" unless Dir.exists? "./site"
 
-  Dir["./notes/*"].each do |note_path|
-    html_path = "./site/#{/(\d+)/.match(note_path)[1]}.html"
+  index_markdown = ""
+
+  Dir["./notes/*"].each_with_index do |note_path, index|
+    relative_path = "#{/(\d+)/.match(note_path)[1]}.html"
+    html_path     = "./site/#{relative_path}"
     sh "pandoc #{note_path} -f markdown -t html -s -o #{html_path}"
+    index_markdown << "- [note #{index + 1}](#{relative_path})\n"
   end
+
+  File.open("./notes/index.md", "w") { |file| file << index_markdown }
+
+  sh "pandoc ./notes/index.md -f markdown -t html -s -o ./site/index.html"
+
+  sh "rm ./notes/index.md"
 end

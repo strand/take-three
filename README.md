@@ -9,7 +9,7 @@ It is vaporware.
 - ~~a maintainer can generate a blank note.~~
 - ~~a maintainer can generate the site from all notes.~~
 - a maintainer can generate the site from **recently changed notes**.
-- a user can see an index of notes
+- ~~a user can generate an index of notes~~
 - a user can view a note by its title
 - a user can view all notes with a tag
 - a user can view a note by its unique id
